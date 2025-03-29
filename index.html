@@ -12,7 +12,7 @@
   <div class="form-container" id="dashboard">
     <div class="header-links">
       <a id="registrationFormLink" onclick="showForm()">Registration Form</a>
-      <a id="adminLink" onclick="showAdminPage()">Admin</a>
+      <a id="adminLink" onclick="showAdminPage()">Company List</a>
     </div>
     <h2>Registration Form</h2>
     <link rel="stylesheet" href="styles.css">
@@ -124,23 +124,64 @@
         <label for="accountNumber">Account Number *</label>
         <input type="text" id="accountNumber" name="accountNumber" required>
       </div>
+      <div class="form-group">
+        <input type="checkbox" id="enablePF" name="enablePF" onclick="togglePFDetails()">
+        <label for="enablePF">Please enable checkbox to enter PF details</label>
+      </div>
+      
+      <div id="pfDetails" style="display: none;">
+        <div class="form-group">
+          <label for="aadhaarFullName">As per Aadhaar Full Name:</label>
+          <input type="text" id="aadhaarFullName" name="aadhaarFullName">
+        </div>
+        <div class="form-group">
+          <label for="aadhaarFatherName">As per Aadhaar Father's Name:</label>
+          <input type="text" id="aadhaarFatherName" name="aadhaarFatherName">
+        </div>
+        <div class="form-group">
+          <label for="aadhaarDOB">As per Aadhaar (DD/MM/YYYY):</label>
+          <input type="date" id="aadhaarDOB" name="aadhaarDOB">
+        </div>
+        <div class="form-group">
+          <label for="aadhaarNumber">Aadhaar Number:</label>
+          <input type="text" id="aadhaarNumber" name="aadhaarNumber">
+        </div>
+        <div class="form-group">
+          <label for="maritalStatus">Marital Status:</label>
+          <select id="maritalStatus" name="maritalStatus">
+            <option value="">Select</option>
+            <option value="Married">Married</option>
+            <option value="Unmarried">Unmarried</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      
+      
+      
+    
+    </div>
+      
       <div class="form-actions">
         <button type="submit">Save and Download Doc</button>
       </div>
+      <p class="success-message" id="successMessage">Successfully saved! You will receive a download link shortly.</p>
     </form>
-    <p class="success-message" id="successMessage">Successfully saved! You will receive a download link shortly.</p>
   </div>
 
+
+
   <div class="admin-container" id="adminPage" style="display: none;">
-    <h2>Company List</h2>
-    <table id="companyList"> 
-      <tr>
-          <th>Company Name</th>
-          <th>Website</th>
-          <th>Location</th>
-      </tr>
-  </table>
+    <h2>
+        Document Content 
+        <button onclick="fetchDocumentContent()" style="margin-left: 10px;">🔄 Refresh</button>
+    </h2>
+    <div id="docContent"></div> <!-- Placeholder for document content -->
     <button onclick="backToDashboard()">Back</button>
-  </div>
+</div>
+
+<footer>
+  <p>© 2025 Ramya Consultancy Service Copyrights </span></p>
+</footer>
+
 </body>
 </html>
